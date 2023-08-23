@@ -1,2 +1,4 @@
 # WebScrapyng
-🚨 Projeto em construção!
+
+Projeto WebScraping utilizando a linguagem Python
+🚨 Em construção!
