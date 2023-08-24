@@ -7,6 +7,7 @@ import pandas as pd
 r = requests.get("https://books.toscrape.com")
 
 categories = []
+
 if r.status_code == 200:
     page_content = r.text
     soup = BeautifulSoup(page_content, "html.parser")
@@ -19,6 +20,7 @@ if r.status_code == 200:
 
         categories.append([name, link])
 
+    # Passando o formato para DataFrame utilizando a biblioteca Pandas
     df = pd.DataFrame(data=categories, columns=["Name", "Link"])
     df = df.sort_values(by="Name")
     print(df[df["Name"] == "Fantasy"])
