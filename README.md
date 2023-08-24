@@ -1,4 +1,8 @@
 # WebScrapyng
 
-Projeto WebScraping utilizando a linguagem Python
-🚨 Em construção!
+Estudos e Projeto Web Scraping utilizando a linguagem Python
+- 🚨 Em construção!
+
+# Bibliotecas
+BeautifulSoup
+Pandas
