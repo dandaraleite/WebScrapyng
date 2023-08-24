@@ -23,7 +23,31 @@ if r.status_code == 200:
         
         title = book.find("h3").find("a").get("title")
         
-        price = book.find("div", class_="product_price").find("p", class_="price_color").text
+        #Pegando o preço e tratando o modo como ele vai ser exibido
+        price = (
+        book.find("div", class_="product_price")
+        .find("p", class_="price_color")
+        .text.replace("Â", "")
+        )
 
-        print(image_url, stars, title, price)   
-        books.append([image_url, stars, title, price])
+        #print(image_url, stars, title, price)   
+        books.append([title, stars, price, image_url])
+
+        #Tratando os dados com a biblioteca pandas
+        df = pd.DataFrame(data=books, columns=["Title", "Stars", "Price", "Image_URL"]) #passando pra dataframe
+        df = df.sort_values(by="Title") #ordenando alfabeticamente pelos títulos
+        #df = df.drop(column="Image_URL", axis = 1) #excluindo coluna "Image_URL"
+        #print(df)
+
+        #Passando o dataframe para o formato .csv
+        df.to_csv("scrape_mystery_books.csv")
+
+        df = pd.read_csv("scrape_mystery_books.csv", index_col=0)
+
+        #Iterando somente entre as colunas "Title, Stars e Price"
+        for index, book in df.iterrows():
+            df = index, book[["Title", "Stars", "Price"]]
+            print(df)
+
+       
+
