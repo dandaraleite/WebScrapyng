@@ -1,6 +1,8 @@
 # WebScrapyng
 
-Estudos e Projeto Web Scraping de uma página de livros utilizando a linguagem Python
+Estudos e Projeto Web Scraping com Python
+Extraindo dados da página de livros (https://books.toscrape.com/)
+
 - **🚨 Em construção!**
 
 # Bibliotecas
