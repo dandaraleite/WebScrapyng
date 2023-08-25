@@ -14,3 +14,7 @@ class BookScraper:
 
     def __init__(self):
         self.books = []
+    
+    def scraper_category(self, category):
+        r = requests.get(f"{self.BASE_URL}/catalogue/category/books/{category}/index.html")
+        
