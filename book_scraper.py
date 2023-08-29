@@ -18,8 +18,10 @@ class BookScraper:
     def __init__(self):
         self.books = []
     
-    def scraper_category(self, category):
-        r = requests.get(f"{self.BASE_URL}/catalogue/category/books/{category}/index.html")
+    def scraper_category(self, category, page=1):
+        r = requests.get(
+            f"{self.BASE_URL}/catalogue/category/books/{category}/page-{page}.html"
+            )
 
         if r.status_code == 200:
             page_content = r.text
@@ -45,3 +47,13 @@ class BookScraper:
                 self.books.append(
                     Book(title=title, review=review, price=price, image_url=image_url)
                 )
+            
+            if self.__has_next(page_content):
+                self.scraper_category(category, page + 1)
+    
+    def __has_next(self, html):
+        soup = BeautifulSoup(html, "html.parser")
+
+        next_button = soup.find_all("li.next a")
+
+        return not next_button is None
