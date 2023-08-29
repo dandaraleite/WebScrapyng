@@ -45,8 +45,3 @@ class BookScraper:
                 self.books.append(
                     Book(title=title, review=review, price=price, image_url=image_url)
                 )
-
-scraper = BookScraper()
-scraper.scraper_category("mystery_3")
-
-print(scraper.books)
