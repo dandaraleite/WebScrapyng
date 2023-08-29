@@ -1,9 +1,10 @@
 # WebScrapyng
 
-Estudos e Projeto Web Scraping com Python. \
-Extraindo dados de uma página de livros
+Studies and Project Web Scraping with Python. \
 
-# Bibliotecas
+Extracting information from book categories on https://books.toscrape.com by pagination if it exists, in addition to recording all the extracted information in a CSV file.
+
+# Libraries
 - Requests
 - BeautifulSoup
 - Pandas
