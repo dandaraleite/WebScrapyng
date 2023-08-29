@@ -9,6 +9,9 @@ class Book:
         self.price = price
         self.image_url = image_url
 
+    def __repr__(self):
+        return f"<Book {self.title}>"
+
 class BookScraper:
     BASE_URL = "https://books.toscrape.com"
 
@@ -44,6 +47,6 @@ class BookScraper:
                 )
 
 scraper = BookScraper()
-scraper.scrape_category("fantasy_3")
+scraper.scraper_category("mystery_3")
 
 print(scraper.books)
