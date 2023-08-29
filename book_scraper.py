@@ -57,3 +57,13 @@ class BookScraper:
         next_button = soup.find_all("li.next a")
 
         return not next_button is None
+    
+    def save(self, name):
+        data = []
+
+        for book in self.books:
+            data.append([book.title, book.review, book.price, book.image_url])
+
+        df = pd.DataFrame(data=data, columns=["Title", "Review", "Price", "Image"])
+
+        df.to_csv(name)
